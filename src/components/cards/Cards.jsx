@@ -139,7 +139,7 @@ const Cards = () =>{
         
 
     </div>
-<hr></hr>
+
     <div className="cardsMain">
       
       <Typography className="topText">Top Albums</Typography>

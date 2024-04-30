@@ -32,10 +32,10 @@ const Cards = () =>{
         }
       };
     const [cardDetails, setCardDetails] = useState([])
-    const [showall, setShowall] = useState(false);
+    const [showall, setShowall] = useState(true);
 
     const [cardalbum, setcardalbum] = useState([])
-    const [albumshowall, setalbumshowall] = useState(false);
+    const [albumshowall, setalbumshowall] = useState(true);
 
     const toggleShowAll = () =>{
       setShowall(!showall)
@@ -79,36 +79,11 @@ const Cards = () =>{
         <Typography className="topText">Top Albums</Typography>
 
         <button onClick={toggleShowAll} className="toggleBtn">
-          {showall ? "Collapse" : "Show All"}
+          {showall ? "Show All" : "Collapse"}
         </button>
 
         {
-          showall ? (<div className="cardContainer">
-          {cardDetails.map((card) => (
-          
-              <Card key={card.id}  className="cardsBoxone">
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image={card.image}
-                  alt={card.title}
-                />
-
-                <Box className="followBox">
-                  <Stack direction="row" spacing={1}>
-                    <Chip
-                      label={`${card.follows} follows`}
-                      className="follower"
-                    />
-                  </Stack>
-                </Box>
-                <Typography gutterBottom className="songTitle">
-                  {card.title}
-                </Typography>
-              </Card>
-           
-          ))}
-        </div>) :(<div>
+          showall ? (<div>
             <Carousel responsive={responsive}>
            {cardDetails.map((card) =>( <div>
             <Card key={card.id} className="cardsBox">
@@ -133,7 +108,32 @@ const Cards = () =>{
            </div>))}
             
 </Carousel>
-          </div> )
+          </div> ) :(<div className="cardContainer">
+          {cardDetails.map((card) => (
+          
+              <Card key={card.id}  className="cardsBoxone">
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={card.image}
+                  alt={card.title}
+                />
+
+                <Box className="followBox">
+                  <Stack direction="row" spacing={1}>
+                    <Chip
+                      label={`${card.follows} follows`}
+                      className="follower"
+                    />
+                  </Stack>
+                </Box>
+                <Typography gutterBottom className="songTitle">
+                  {card.title}
+                </Typography>
+              </Card>
+           
+          ))}
+        </div>)
         }
 
         
@@ -145,36 +145,11 @@ const Cards = () =>{
       <Typography className="topText">Top Albums</Typography>
 
       <button onClick={toggleablum} className="toggleBtn">
-        {albumshowall ? "Collapse" : "Show All"}
+        {albumshowall ? "Show All" : "Collapse"}
       </button>
 
       {
-        albumshowall ? (<div className="cardContainer">
-        {cardalbum.map((card) => (
-        
-            <Card key={card.id}  className="cardsBoxone">
-              <CardMedia
-                component="img"
-                height="140"
-                image={card.image}
-                alt={card.title}
-              />
-
-              <Box className="followBox">
-                <Stack direction="row" spacing={1}>
-                  <Chip
-                    label={`${card.follows} follows`}
-                    className="follower"
-                  />
-                </Stack>
-              </Box>
-              <Typography gutterBottom className="songTitle">
-                {card.title}
-              </Typography>
-            </Card>
-         
-        ))}
-      </div>) :( <div>
+        albumshowall ? (<div>
           <Carousel responsive={responsive}>
          {cardalbum.map((card) =>( <div>
           <Card key={card.id} className="cardsBox">
@@ -199,7 +174,32 @@ const Cards = () =>{
          </div>))}
           
 </Carousel>
-        </div>)
+        </div>) :( <div className="cardContainer">
+        {cardalbum.map((card) => (
+        
+            <Card key={card.id}  className="cardsBoxone">
+              <CardMedia
+                component="img"
+                height="140"
+                image={card.image}
+                alt={card.title}
+              />
+
+              <Box className="followBox">
+                <Stack direction="row" spacing={1}>
+                  <Chip
+                    label={`${card.follows} follows`}
+                    className="follower"
+                  />
+                </Stack>
+              </Box>
+              <Typography gutterBottom className="songTitle">
+                {card.title}
+              </Typography>
+            </Card>
+         
+        ))}
+      </div>)
       }
 
   </div>

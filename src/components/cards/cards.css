@@ -1,0 +1,89 @@
+.cardsMain{
+    background-color: var(--black-color);
+    padding: 32px;
+    position: relative;
+}
+
+.cardsBox{
+    width: 159px;
+    background-color: transparent!important;
+}
+
+.topText{
+    font-size: 20px!important;
+    color: var(--white-color);
+    text-align: left;
+    padding-bottom: 20px;
+    font-weight: 600!important;
+    font-family: var(--fontname)!important;
+}
+.songTitle{
+    color: var(--white-color);
+    font-size: 14px!important;
+    font-weight: 400!important; 
+    font-family: var(--fontname)!important;
+    text-align: left;
+    padding-top: 14px;
+}
+.followBox{
+    background-color: var(--white-color);
+    border-radius: 0px 0px 10px 10px;
+}
+
+.follower{
+    background-color: var(--black-color)!important;
+    color: var(--white-color)!important;
+    font-size: 10px!important;
+    font-weight: 400!important; 
+    font-family: var(--fontname)!important;
+    padding: 4px 8px!important;
+    margin: 6px !important;
+}
+
+.react-multiple-carousel__arrow {
+    background:var(--green-color)!important;
+    width: 32px!important;
+}
+.react-multi-carousel-list{
+    position: static!important;
+}
+
+.toggleBtn{
+    position: absolute;
+    top: 20px;
+    right: 80px;
+    background-color: transparent!important;
+    color: var(--green-color);
+    border: none;
+    font-size: 20px;
+    font-family: var(--fontname);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+  
+}
+
+
+.cardsBoxone{
+    width: 159px;
+    background-color: transparent!important;
+}
+
+.cardsBoxone {
+    flex: 0 0 calc(14.28% - 10px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+.cardsBoxone:last-child {
+    margin-right: 0;
+  }
+  hr{
+    border:1px solid var(--green-color);
+    margin: 0px;
+  }

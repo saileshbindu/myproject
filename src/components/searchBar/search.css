@@ -1,0 +1,24 @@
+.searchMain{
+display: flex;
+}
+.searchMain input{
+    width: 568px;
+    height: 48px;
+    border-radius: 8px 0px 0px 8px;
+    border: 1px solid var(--black-color);
+    padding-left: 20px;
+}
+.searchMain input::placeholder{
+    font-size: 16px;
+    color: var(--black-color);
+}
+.searchMain button{
+    width: 66px;
+    height: 52px;
+    position: absolute;
+    border-radius: 0px 8px 8px 0px;
+    padding-top: 4px;
+    background-color: var(--white-color);
+    cursor: pointer;    
+    border: 1px solid var(--black-color);
+}

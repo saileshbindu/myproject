@@ -79,36 +79,11 @@ const Cards = () =>{
         <Typography className="topText">Top Albums</Typography>
 
         <button onClick={toggleShowAll} className="toggleBtn">
-          {showall ? "Show All" : "Collapse"}
+          {showall ? "Collapse" : "Show All"}
         </button>
 
         {
-          showall ? (<div>
-            <Carousel responsive={responsive}>
-           {cardDetails.map((card) =>( <div>
-            <Card key={card.id} className="cardsBox">
-   
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image={card.image}
-                  alt="{card.title}"
-                />
-         
-                    <Box className="followBox">
-                   <Stack direction="row" spacing={1}> 
-                   <Chip label={`${card.follows} follows`} className="follower" />
-                    </Stack>
-                    </Box>
-                <Typography gutterBottom className="songTitle">
-                    {card.title}
-                  </Typography>
-            
-            </Card>
-           </div>))}
-            
-</Carousel>
-          </div>) :( <div className="cardContainer">
+          showall ? (<div className="cardContainer">
           {cardDetails.map((card) => (
           
               <Card key={card.id}  className="cardsBoxone">
@@ -133,7 +108,32 @@ const Cards = () =>{
               </Card>
            
           ))}
-        </div>)
+        </div>) :(<div>
+            <Carousel responsive={responsive}>
+           {cardDetails.map((card) =>( <div>
+            <Card key={card.id} className="cardsBox">
+   
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={card.image}
+                  alt="{card.title}"
+                />
+         
+                    <Box className="followBox">
+                   <Stack direction="row" spacing={1}> 
+                   <Chip label={`${card.follows} follows`} className="follower" />
+                    </Stack>
+                    </Box>
+                <Typography gutterBottom className="songTitle">
+                    {card.title}
+                  </Typography>
+            
+            </Card>
+           </div>))}
+            
+</Carousel>
+          </div> )
         }
 
         
@@ -145,36 +145,11 @@ const Cards = () =>{
       <Typography className="topText">Top Albums</Typography>
 
       <button onClick={toggleablum} className="toggleBtn">
-        {albumshowall ? "Show All" : "Collapse"}
+        {albumshowall ? "Collapse" : "Show All"}
       </button>
 
       {
-        albumshowall ? (<div>
-          <Carousel responsive={responsive}>
-         {cardalbum.map((card) =>( <div>
-          <Card key={card.id} className="cardsBox">
- 
-              <CardMedia
-                component="img"
-                height="140"
-                image={card.image}
-                alt="{card.title}"
-              />
-       
-                  <Box className="followBox">
-                 <Stack direction="row" spacing={1}> 
-                 <Chip label={`${card.follows} follows`} className="follower" />
-                  </Stack>
-                  </Box>
-              <Typography gutterBottom className="songTitle">
-                  {card.title}
-                </Typography>
-          
-          </Card>
-         </div>))}
-          
-</Carousel>
-        </div>) :( <div className="cardContainer">
+        albumshowall ? (<div className="cardContainer">
         {cardalbum.map((card) => (
         
             <Card key={card.id}  className="cardsBoxone">
@@ -199,7 +174,32 @@ const Cards = () =>{
             </Card>
          
         ))}
-      </div>)
+      </div>) :( <div>
+          <Carousel responsive={responsive}>
+         {cardalbum.map((card) =>( <div>
+          <Card key={card.id} className="cardsBox">
+ 
+              <CardMedia
+                component="img"
+                height="140"
+                image={card.image}
+                alt="{card.title}"
+              />
+       
+                  <Box className="followBox">
+                 <Stack direction="row" spacing={1}> 
+                 <Chip label={`${card.follows} follows`} className="follower" />
+                  </Stack>
+                  </Box>
+              <Typography gutterBottom className="songTitle">
+                  {card.title}
+                </Typography>
+          
+          </Card>
+         </div>))}
+          
+</Carousel>
+        </div>)
       }
 
   </div>

@@ -79,7 +79,7 @@ const Cards = () =>{
         <Typography className="topText">Top Albums</Typography>
 
         <button onClick={toggleShowAll} className="toggleBtn">
-          {showall ? "Show All" : "Collapse"}
+          {showall ? "Show all" : "Collapse"}
         </button>
 
         {
@@ -145,7 +145,7 @@ const Cards = () =>{
       <Typography className="topText">Top Albums</Typography>
 
       <button onClick={toggleablum} className="toggleBtn">
-        {albumshowall ? "Show All" : "Collapse"}
+        {albumshowall ? "Show all" : "Collapse"}
       </button>
 
       {

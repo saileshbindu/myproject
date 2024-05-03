@@ -85,8 +85,8 @@ const Cards = () =>{
         {
           showall ? (<div>
             <Carousel responsive={responsive}>
-           {cardDetails.map((card) =>( <div>
-            <Card key={card.id} className="cardsBox">
+           {cardDetails.map((card) =>( <div key={card.id}>
+            <Card  className="cardsBox">
    
                 <CardMedia
                   component="img"
@@ -111,7 +111,8 @@ const Cards = () =>{
           </div> ) :(<div className="cardContainer">
           {cardDetails.map((card) => (
           
-              <Card key={card.id}  className="cardsBoxone">
+              <div key={card.id}>
+                <Card   className="cardsBoxone">
                 <CardMedia
                   component="img"
                   height="140"
@@ -131,6 +132,7 @@ const Cards = () =>{
                   {card.title}
                 </Typography>
               </Card>
+              </div>
            
           ))}
         </div>)
@@ -151,8 +153,8 @@ const Cards = () =>{
       {
         albumshowall ? (<div>
           <Carousel responsive={responsive}>
-         {cardalbum.map((card) =>( <div>
-          <Card key={card.id} className="cardsBox">
+         {cardalbum.map((card) =>( <div key={card.id}>
+          <Card  className="cardsBox">
  
               <CardMedia
                 component="img"
@@ -177,7 +179,8 @@ const Cards = () =>{
         </div>) :( <div className="cardContainer">
         {cardalbum.map((card) => (
         
-            <Card key={card.id}  className="cardsBoxone">
+          <div key={card.id} >
+              <Card  className="cardsBoxone">
               <CardMedia
                 component="img"
                 height="140"
@@ -197,6 +200,7 @@ const Cards = () =>{
                 {card.title}
               </Typography>
             </Card>
+          </div>
          
         ))}
       </div>)
@@ -204,10 +208,10 @@ const Cards = () =>{
 
   </div>
   
-
+  <hr></hr>
 
     </div>
-    
+
     
     
     

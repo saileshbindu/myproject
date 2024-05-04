@@ -12,13 +12,17 @@
     font-family: var(--fontname)!important;
 }
 
-.css-1h9z7r5-MuiButtonBase-root-MuiTab-root{
+.tabcolor{
     color: var(--white-color)!important;
+    font-size: 16px!important;
+    font-weight: 600!important;
+    font-family:var(--fontname)!important;
+    text-transform: capitalize!important;
+}
+.tabcolor:hover{
+    border-bottom: 5px solid var(--green-color)!important;
 }
 
-.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected{
-    color: var(--green-color)!important;
-}
-.css-1aquho2-MuiTabs-indicator{
-    background-color:var(--green-color)!important; ;
+.tabmain{
+    margin-bottom: 20px;
 }

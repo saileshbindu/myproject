@@ -1,0 +1,19 @@
+
+.faqmain{
+    background-color: var(--black-color);
+  
+}
+.headerText{
+    font-size: 50px!important;
+    font-family: var(--fontname)!important;
+    color: var(--white-color)!important;
+}
+
+.accordmain{
+    display: flex;
+}
+
+.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-2.accordmain.css-mhc70k-MuiGrid-root{
+    justify-content: center!important;
+    margin-top: 20px;
+}

@@ -1,8 +1,9 @@
 import './App.css';
 import Navbar from './components/navbar/Navbar';
 import HeroSection from './components/heroSection/Herosection';
-import Cards from './components/cards/Cards';
+import Section from './components/section/Section';
 import Songs from './components/songs/Songs';
+import Faqs from './components/faqs/Faqs';
 
 
 function App() {
@@ -10,8 +11,9 @@ function App() {
     <div className="App">
        <Navbar/>
        <HeroSection />
-       <Cards/>
+       <Section />
        <Songs />
+       <Faqs/>
        
     </div>
   );

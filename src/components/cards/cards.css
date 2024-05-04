@@ -7,6 +7,7 @@
 .cardsBox{
     width: 159px;
     background-color: transparent!important;
+    margin: 0px 20px;
 }
 
 .topText{
@@ -38,27 +39,6 @@
     font-family: var(--fontname)!important;
     padding: 4px 8px!important;
     margin: 6px !important;
-}
-
-.react-multiple-carousel__arrow {
-    background:var(--green-color)!important;
-    width: 32px!important;
-}
-.react-multi-carousel-list{
-    position: static!important;
-}
-
-.toggleBtn{
-    position: absolute;
-    top: 20px;
-    right: 80px;
-    background-color: transparent!important;
-    color: var(--green-color);
-    border: none;
-    font-size: 20px;
-    font-family: var(--fontname);
-    font-weight: 600;
-    cursor: pointer;
 }
 
 .cardContainer{

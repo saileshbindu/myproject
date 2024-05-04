@@ -1,60 +1,65 @@
-import React, { useEffect, useState } from 'react';
-import { Tabs, Tab } from '@mui/material';
-import axios from 'axios';
-import Typography from '@mui/material/Typography';
+import React, { useState, useEffect } from "react";
+import { Typography, Tabs, Tab } from "@mui/material";
+import CarouselComponent from "../carousel/Carousel";
+import axios from "axios";
+import './songs.css'
 
-function App() {
-  const [songs, setSongs] = useState([]);
-  const [genres, setGenres] = useState([]);
-  const [selectedTab, setSelectedTab] = useState(0);
+const Song = () => {
+  const [song, setSong] = useState([]);
+  const [genre, setGenre] = useState([]);
+  const [filterSong, setFilterSong] = useState([]);
 
   useEffect(() => {
-    const genresFetch = async () => {
-      try {
-        const generRes = await axios.get("https://qtify-backend-labs.crio.do/genres");
-        setGenres([...genres, generRes.data])
-        console.log([...genres, generRes.data]);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+    const fetchData = async () => {
+      const songs = await axios.get(`https://qtify-backend-labs.crio.do/songs`);
+      const genres = await axios.get(
+        `https://qtify-backend-labs.crio.do/genres`
+      );
+      setSong(songs.data);
+      setGenre(genres.data);
+      setFilterSong(songs.data);
     };
-    genresFetch();
+    fetchData();
+  }, []);
 
-    const songsFetch = async () => {
-      try {
-        const songsRes = await axios.get("https://qtify-backend-labs.crio.do/songs");
-        setSongs( songsRes.data);
-        console.log(songsRes.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    songsFetch();
-  },[genres, songs]);
-
-  const handleTabChange = (event, newValue) => {
-    setSelectedTab(newValue);
+  const handleChange = (e) => {
+    const match = e.target.id;
+    if (match === "all") {
+      setFilterSong(song);
+      return;
+    }
+    const filtered = song.filter((item) => item.genre.key === match);
+    setFilterSong([...filtered]);
   };
 
   return (
-    <div className='songsMain'>
-      <Typography className="topText">Top Albums</Typography>
-      <Tabs value={selectedTab} onChange={handleTabChange} centered>
-        {genres.map((genre) => (
-          <Tab key={genre.key} label={genre.label} />
-        ))}
-      </Tabs>
-      <div>
-        {songs.filter(song => song.genre === genres[selectedTab].key).map((song) => (
-          console.log( "song", song)
-          // <div key={song.key}>
-          //   <h3>{song.title}</h3>
-          //   <p>{song.artist}</p>
-          // </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+    <>
+     <div className="songsMain">
+      <Typography className="topText">Songs</Typography>
+        <Tabs value="all" onChange={handleChange} className="tabmain"  >
+          {genre.data &&
+            genre.data.map((item, index) =>
+              index === 0 ? (
+                <Tab key="all" value="All" id="all" label="All" wrapped className="tabcolor"/>
+              ) : (
+                <Tab
+                  key={item.key}
+                  value={item.label}
+                  id={item.key}
+                  label={item.label}
+                  wrapped
+                  className="tabcolor"
+                />
+              )
+            )}
+        </Tabs>
+   
 
-export default App;
+        <CarouselComponent items={filterSong} />
+      </div>
+      <hr/>
+    </>
+  );
+};
+
+export default Song;

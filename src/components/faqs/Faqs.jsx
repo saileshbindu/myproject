@@ -6,64 +6,49 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Typography from '@mui/material/Typography';
 import './Faqs.css'
 import Grid from '@mui/material/Grid';
+import axios from 'axios';
+import { useEffect, useState} from 'react';
 
 const Faqs = () => {
+    const [faqvalue, Setfaqvalue] = useState([])
 
-  return (
-    <div className='faqmain'>
-        <Typography className='headerText'>FAQs</Typography>
+    useEffect(()=>{
+        const faqsFetch = async() =>{
+            try {
+                const faqRes = await axios.get("https://qtify-backend-labs.crio.do/faq")
+                Setfaqvalue([...faqvalue, faqRes.data]);
+                console.log(faqRes.data)
+            } catch (error) {
+                console.log("Error while fetching data", error)
+            }
+        }
+        faqsFetch();
+    },[])
 
-        <Grid container spacing={2} columns={16} className="accordmain">
-  <Grid item xs={12} className="accordChild">
-  <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1-content"
-          id="panel1-header"
-        >
-          Accordion 1
-        </AccordionSummary>
-        <AccordionDetails>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2-content"
-          id="panel2-header"
-        >
-          Accordion 2
-        </AccordionSummary>
-        <AccordionDetails>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
-        </AccordionDetails>
-      </Accordion>
-      <Accordion defaultExpanded>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3-content"
-          id="panel3-header"
-        >
-          Accordion Actions
-        </AccordionSummary>
-        <AccordionDetails>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
-        </AccordionDetails>
-     
-      </Accordion>
-  </Grid>
-  
-</Grid>
-
-
-      
-    </div>
-  );
+    return (
+        <div className='faqmain'>
+            <Typography className='headerText'>FAQs</Typography>
+                
+            <Grid container spacing={2} columns={16} className="accordmain">
+                <Grid item xs={12} className="accordChild">
+                    {faqvalue.map((acc, index) => (
+                        <Accordion key={index}>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls={`panel${index + 1}-content`}
+                                id={`panel${index + 1}-header`}
+                            >
+                                {acc.question}
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                {acc.answer}
+                            </AccordionDetails>
+                        </Accordion>
+                    ))}
+                </Grid>
+            </Grid>
+        </div>
+    );
 }
-
 
 export default Faqs;

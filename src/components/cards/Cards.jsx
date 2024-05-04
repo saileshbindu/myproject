@@ -6,11 +6,15 @@ import Typography from '@mui/material/Typography';
 import Box from "@mui/material/Box";
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import Tooltip from '@mui/material/Tooltip';
 import './cards.css'
 
 const CardComponent = ({ card }) => {
+  console.log("card" , card)
   return (
     <div key={card.id}>
+      
+      <Tooltip title='42 songs' arrow placement="top">
       <Card className="cardsBox">
         <CardMedia
           component="img"
@@ -27,6 +31,7 @@ const CardComponent = ({ card }) => {
           {card.title}
         </Typography>
       </Card>
+      </Tooltip>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import Navbar from './components/navbar/Navbar';
 import HeroSection from './components/heroSection/Herosection';
 import Section from './components/section/Section';
 import Songs from './components/songs/Songs';
-import Faqs from './components/faqs/Faqs';
+// import Faqs from './components/faqs/Faqs';
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
        <HeroSection />
        <Section />
        <Songs />
-       <Faqs/>
+       {/* <Faqs/> */}
        
     </div>
   );
